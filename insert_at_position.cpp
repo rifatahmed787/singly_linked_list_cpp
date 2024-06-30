@@ -21,6 +21,7 @@ void insert_at_tail(Node *&head, int v)
     if (head == NULL)
     {
         head = newNode;
+        cout<<"inserted at head"<<endl;
         return;
     };
     Node *temp = head;
@@ -31,6 +32,7 @@ void insert_at_tail(Node *&head, int v)
     }
 
     temp->next = newNode;
+    cout<< "inserted at tail"<< endl;
 }
 void print_linked_list(Node *head)
 {
@@ -44,6 +46,19 @@ void print_linked_list(Node *head)
     };
     cout<<endl;
 };
+
+void insert_at_position(Node *head, int pos, int v){
+    Node *temp = head;
+    Node *newNode=new Node(v);
+
+    for(int i=1; i<=pos-1; i++){
+       temp=temp->next;
+    };
+    newNode->next=temp->next;
+    temp->next=newNode;
+
+    cout<<endl<<"Positon inserted"<<endl<<endl;
+};
 int main()
 {
 
@@ -54,7 +69,8 @@ int main()
 
         cout << "Option 1: insert at tail" << endl;
         cout << "Option 2: Print linked list" << endl;
-        cout << "Option 3: terminate" << endl;
+        cout << "Option 3: insert at position" << endl;
+        cout << "Option 4: terminate" << endl;
         int op;
         cin >> op;
         if (op == 1)
@@ -69,8 +85,17 @@ int main()
         {
 
             print_linked_list(head);
+        }else if(op == 3){
+            int pos, v;
+            cout<<"enter a position:";
+            cin >> pos;
+            cout<<"enter a value:";
+            cin >> v;
+
+            insert_at_position(head, pos, v);
+
         }
-        else if (op == 3)
+        else if (op == 4)
         {
             break;
         };
