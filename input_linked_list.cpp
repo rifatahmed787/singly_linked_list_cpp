@@ -40,11 +40,14 @@ void print_linked_list(Node *head)
     cout <<endl<< "Your linked list:";
 
     Node *temp = head;
+    int index=0;
     while (temp != NULL)
     {
         cout << temp->val << " ";
         temp = temp->next;
+        index=index+1;
     };
+    cout<<endl<<"the index is:"<<index<<endl;
     cout << endl;
 };
 int main(){
